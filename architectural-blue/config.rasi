@@ -1,0 +1,195 @@
+/*
+✦・━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━・✦
+          [ ROFI HYPRLAND - BLUE DASHBOARD ]
+          Crafted with Niyaki Pham
+✦・━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━・✦
+*/
+
+configuration {
+    modi:                       "drun,run";
+    show-icons:                 true;
+    display-drun:               "  Explore";  
+    display-run:                "  Launch";
+    drun-display-format:        "{name}";
+    font:                       "JetBrains Mono Nerd Font ExtraBold 12"; 
+}
+
+@theme "/dev/null"
+
+* {
+    
+    bg-frame:                   #FFFFFF; 
+    bg-canvas:                  #0B3B8A; 
+    
+    fg-main:                    #FFFFFF; 
+    fg-inverted:                #0B3B8A; 
+    fg-muted:                   #7A9EDB; 
+
+    /* Hệ thống bo góc */
+    radius-frame:               42px;    
+    radius-canvas:              32px;    
+    radius-pill:                100px;   
+    radius-widget:              28px;    
+}
+
+/* 🪄 XÓA NỀN TRẮNG MẶC ĐỊNH 🪄 */
+element-text, element-icon, prompt {
+    background-color:           transparent;
+    text-color:                 inherit;
+}
+
+window {
+    width:                      900px; 
+    height:                     540px;
+    background-color:           @bg-frame; 
+    border-radius:              @radius-frame;
+    padding:                    14px;      
+}
+
+mainbox {
+    orientation:                horizontal;
+    children:                   [ left-pane, right-pane ];
+    background-color:           @bg-canvas; 
+    border-radius:              @radius-canvas;
+    padding:                    24px;
+    spacing:                    24px; 
+}
+
+
+left-pane {
+    width:                      50%;
+    orientation:                vertical;
+    children:                   [ mode-switcher, inputbar, listview ];
+    background-color:           transparent;
+    spacing:                    20px;
+}
+
+mode-switcher {
+    orientation:                horizontal;
+    background-color:           transparent;
+    spacing:                    12px;
+    border-radius:              @radius-pill;
+}
+
+button {
+    padding:                    12px 18px;
+    background-color:           transparent;
+    text-color:                 @fg-muted;
+    border-radius:              @radius-pill;
+    border:                     2px solid;
+    border-color:               transparent;
+}
+
+button selected {
+    background-color:           @bg-frame; 
+    text-color:                 @fg-inverted; 
+    border:                     2px solid;
+    border-color:               @bg-frame;
+}
+
+inputbar {
+    width:                      100%;
+    padding:                    16px 20px;
+    background-color:           #FFFFFF1A; 
+    border-radius:              @radius-pill;
+    children:                   [ entry ];
+    border:                     1px solid;
+    border-color:               #FFFFFF33; 
+}
+
+entry {
+    background-color:           transparent;
+    placeholder:                "Search collections...";
+    placeholder-color:          @fg-muted;
+    text-color:                 @fg-main;
+    vertical-align:             0.5;
+}
+
+listview {
+    columns:                    1; 
+    lines:                      5;
+    spacing:                    8px;
+    background-color:           transparent;
+    scrollbar:                  false;
+}
+
+element {
+    padding:                    12px 16px;
+    border-radius:              @radius-pill; 
+    background-color:           transparent;
+    text-color:                 @fg-main;
+    border:                     2px solid;
+    border-color:               transparent;
+}
+
+element selected {
+    background-color:           @bg-frame;     
+    text-color:                 @fg-inverted;  
+    border:                     2px solid; 
+    border-color:               @bg-frame;     
+}
+
+element-icon {
+    size:                       24px;
+    margin:                     0 12px 0 0;
+}
+
+element-text {
+    vertical-align:             0.5;
+}
+
+right-pane {
+    width:                      50%;
+    orientation:                vertical;
+    children:                   [ dummy, textbox-time, stats-container, dummy ];
+    background-color:           #FFFFFF12; 
+    border-radius:              @radius-widget; 
+    border:                     1px solid;
+    border-color:               #FFFFFF22;
+    spacing:                    20px; 
+}
+
+dummy {
+    expand:                     true;
+    background-color:           transparent;
+}
+
+textbox-time {
+    expand:                     false;
+    content:                    "20:32"; 
+    font:                       "JetBrains Mono Nerd Font ExtraBold 64";
+    text-color:                 @fg-main;
+    horizontal-align:           0.5;
+    background-color:           transparent;
+}
+
+stats-container {
+    orientation:                horizontal;
+    background-color:           transparent;
+    children:                   [ dummy-center, textbox-cpu, textbox-ram, textbox-bat, dummy-center ];
+    spacing:                    20px; 
+}
+
+dummy-center {
+    expand:                     true;
+    background-color:           transparent;
+}
+
+textbox-cpu, textbox-ram, textbox-bat {
+    expand:                     false;
+    width:                      80px;      
+    padding:                    18px 0px;  
+    background-color:           #FFFFFF1A; 
+    text-color:                 @fg-main;
+    font:                       "JetBrains Mono Nerd Font Bold 12";
+    border-radius:              100%;      
+    border:                     1px solid;
+    border-color:               #FFFFFF33; 
+    horizontal-align:           0.5;       
+    vertical-align:             0.5;       
+}
+
+
+textbox-cpu { content: "\nCPU"; }
+textbox-ram { content: "\nRAM"; }
+textbox-bat { content: "\nBAT"; }
