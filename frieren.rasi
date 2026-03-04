@@ -1,0 +1,139 @@
+configuration {
+    modi:                       "drun,run";
+    show-icons:                 true;
+    display-drun:               "  Apps";  
+    display-run:                "  Run";   
+    
+    drun-display-format:        "{name}";
+    font:                       "JetBrains Mono Nerd Font 11"; 
+}
+
+@theme "/dev/null"
+
+* {
+    
+    bg-outer:                   #090B10; 
+    bg-surface:                 #141A24; 
+    bg-right:                   #090B10; 
+
+    fg-main:                    #FFFFFF; 
+    fg-muted:                   #687D93; 
+    
+    accent-cyan:                #5EE6E6; 
+
+    border-radius-outer:        24px;    
+    border-radius-inner:        18px;    
+    border-radius-pill:         100px;   
+}
+
+element-text, element-icon, prompt {
+    background-color:           transparent;
+    text-color:                 inherit;
+}
+
+window {
+    width:                      880px;
+    height:                     520px;
+    background-color:           @bg-outer;
+    border-radius:              @border-radius-outer;
+    padding:                    12px;    
+    border:                     1px solid;
+    border-color:               #1A2230; 
+}
+
+mainbox {
+    orientation:                horizontal;
+    children:                   [ left-box, right-box ];
+    background-color:           transparent;
+    spacing:                    15px;    
+}
+
+left-box {
+    width:                      45%;
+    orientation:                vertical;
+    children:                   [ inputbar, listview, mode-switcher ];
+    background-color:           transparent;
+    padding:                    24px 16px;
+}
+
+inputbar {
+    width:                      100%;
+    margin:                     0px 0px 24px 0px;
+    padding:                    14px 20px;
+    background-color:           @bg-surface; 
+    border-radius:              @border-radius-pill;
+    children:                   [ entry ];
+    border:                     1px solid;
+    border-color:               #253142; 
+}
+
+entry {
+    background-color:           transparent; 
+    placeholder:                "Tìm kiếm ma pháp...";
+    placeholder-color:          @fg-muted;
+    text-color:                 @fg-main;
+    vertical-align:             0.5;
+}
+
+listview {
+    columns:                    1;
+    lines:                      6;
+    spacing:                    6px;
+    background-color:           transparent;
+    scrollbar:                  false;
+}
+
+element {
+    padding:                    12px 20px;
+    border-radius:              @border-radius-pill; 
+    background-color:           transparent;
+    text-color:                 @fg-main;
+    border:                     1px solid;
+    border-color:               transparent;
+}
+
+element selected {
+    background-color:           #141A24;       
+    text-color:                 @accent-cyan;  
+    border:                     1px solid; 
+    border-color:               @accent-cyan;  
+}
+
+element-icon {
+    size:                       22px;
+    margin:                     0 12px 0 0;
+}
+
+element-text {
+    vertical-align:             0.5;
+}
+
+mode-switcher {
+    orientation:                horizontal;
+    background-color:           transparent;
+    spacing:                    10px;
+    margin:                     16px 0px 0px 0px;
+}
+
+button {
+    padding:                    12px;
+    background-color:           @bg-surface;
+    text-color:                 @fg-muted;
+    border-radius:              @border-radius-pill;
+    border:                     1px solid;
+    border-color:               transparent;
+}
+
+button selected {
+    background-color:           transparent;
+    text-color:                 @accent-cyan;
+    border:                     1px solid;
+    border-color:               @accent-cyan; 
+}
+
+right-box {
+    width:                      55%;
+    background-color:           @bg-right;
+    border-radius:              @border-radius-inner; 
+    background-image:           url("~/.config/rofi/frieren.jpg", width);
+}
