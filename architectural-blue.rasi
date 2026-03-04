@@ -1,0 +1,131 @@
+/*
+✦・━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━・✦
+          [ ROFI HYPRLAND - ARCHITECTURAL BLUE ]
+          Crafted with Niyaki Pham 🌊
+✦・━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━・✦
+*/
+
+configuration {
+    modi:                       "drun,run";
+    show-icons:                 true;
+    display-drun:               "  Explore";  
+    display-run:                "  Launch";
+    drun-display-format:        "{name}";
+    font:                       "JetBrains Mono Nerd Font ExtraBold 12"; 
+}
+
+@theme "/dev/null"
+
+* {
+
+    bg-frame:                   #FFFFFF; 
+    bg-canvas:                  #0B3B8A;
+    
+    fg-main:                    #FFFFFF; 
+    fg-inverted:                #0B3B8A; 
+    fg-muted:                   #7A9EDB; 
+
+    radius-frame:               42px;    
+    radius-canvas:              32px;    
+    radius-pill:                100px;   
+
+
+element-text, element-icon, prompt {
+    background-color:           transparent;
+    text-color:                 inherit;
+}
+
+window {
+    width:                      850px;
+    height:                     540px;
+    background-color:           @bg-frame; 
+    border-radius:              @radius-frame;
+    padding:                    14px;      
+}
+
+mainbox {
+    orientation:                vertical;
+    children:                   [ mode-switcher, inputbar, listview ];
+    background-color:           @bg-canvas; 
+    border-radius:              @radius-canvas;
+    padding:                    32px 40px;
+    spacing:                    24px;
+}
+
+mode-switcher {
+    orientation:                horizontal;
+    background-color:           transparent;
+    spacing:                    16px;
+    border-radius:              @radius-pill;
+    horizontal-align:           0.5; 
+}
+
+button {
+    padding:                    12px 24px;
+    background-color:           transparent;
+    text-color:                 @fg-muted;
+    border-radius:              @radius-pill;
+    border:                     2px solid;
+    border-color:               transparent;
+}
+
+button selected {
+    background-color:           @bg-frame; 
+    text-color:                 @fg-inverted; 
+    border:                     2px solid;
+    border-color:               @bg-frame;
+}
+
+
+inputbar {
+    width:                      100%;
+    padding:                    18px 24px;
+    background-color:           #FFFFFF1A; 
+    border-radius:              @radius-pill;
+    children:                   [ entry ];
+    border:                     1px solid;
+    border-color:               #FFFFFF33; 
+}
+
+entry {
+    background-color:           transparent;
+    placeholder:                "Type to search your collections...";
+    placeholder-color:          @fg-muted;
+    text-color:                 @fg-main;
+    vertical-align:             0.5;
+    horizontal-align:           0.5; 
+}
+
+
+listview {
+    columns:                    2;
+    lines:                      5;
+    spacing:                    12px;
+    background-color:           transparent;
+    scrollbar:                  false;
+}
+
+element {
+    padding:                    14px 20px;
+    border-radius:              @radius-pill; 
+    background-color:           transparent;
+    text-color:                 @fg-main;
+    border:                     2px solid;
+    border-color:               transparent;
+}
+
+element selected {
+    background-color:           @bg-frame;     
+    text-color:                 @fg-inverted;  
+    border:                     2px solid; 
+    border-color:               @bg-frame;     
+}
+
+element-icon {
+    size:                       26px;
+    margin:                     0 14px 0 0;
+}
+
+element-text {
+    vertical-align:             0.5;
+}
